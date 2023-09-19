@@ -1,0 +1,27 @@
+<h2>ここはマイページです</h2>
+
+<li>
+                <%= link_to root_path,class: 'nav-link text-light' do %>
+                <i class="fas fa-home"></i>LOGO
+                <% end %>
+              </li>
+              <li>
+                <%= link_to customers_path, class: 'nav-link text-light' do %>
+                <i class="fas fa-home"></i>マイページ
+                <% end %>
+              </li>
+              <li>
+
+                <i class="fas fa-home"></i>商品一覧
+
+              </li>
+              <li>
+
+                <i class="fas fa-home"></i>カート
+
+              </li>
+              <li>
+                <%= button_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
+                <i class="fas fa-home"></i>ログアウト
+                <% end %>
+              </li>
