@@ -11,6 +11,26 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <% if admin_signed_in? %>
+        商品一覧
+        会員一覧
+        注文履歴一覧
+        ジャンル一覧
+        <%= link_to destroy_admin_session_path, method: :delete do %>ログアウト<% end %>
+      <% elsif customer_signed_in? %>
+        <%= link_to root_path do %>LOGO<% end %>
+        <%= link_to customers_mypage_path do %>マイページ<% end %>
+        商品一覧
+        カート
+        <%= button_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>ログアウト<% end %>
+      <% else %>
+        <%= link_to root_path do %>LOGO<% end %>
+        商品一覧
+        <%= link_to new_customer_registration_path do %>新規登録<% end %>
+        <%= link_to new_customer_session_path do %>ログイン<% end %>
+      <% end %>
+    </header>
+    <%= yield %> 
   </body>
 </html>
