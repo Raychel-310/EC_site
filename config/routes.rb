@@ -14,9 +14,9 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
-    get "customers" => "customers#show"
-    get "customers/edit" => "customers#edit"
-    patch "customers" => "customers#update"
+    get "customers/mypage" => "customers#show"
+    get "customers/information/edit" => "customers#edit"
+    patch "customers/information" => "customers#update"
   end
 
   namespace :admin do

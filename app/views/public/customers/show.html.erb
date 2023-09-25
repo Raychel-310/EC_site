@@ -1,27 +1,57 @@
-<h2>ここはマイページです</h2>
+<h2>マイページ</h2>
 
-<li>
-                <%= link_to root_path,class: 'nav-link text-light' do %>
-                <i class="fas fa-home"></i>LOGO
-                <% end %>
-              </li>
-              <li>
-                <%= link_to customers_path, class: 'nav-link text-light' do %>
-                <i class="fas fa-home"></i>マイページ
-                <% end %>
-              </li>
-              <li>
+<body>
+<div class="d-flex align-items-center">
+          <h3><b>登録情報</b></h3>
+          <%= link_to "編集する", customers_information_edit_path, class:"btn btn-success ml-3" %>
+</div>
+          <table class="table table-bordered">
+            <tr>
+              <td class="bg-light">姓</td>
+              <td><%= @customer.lastname_kanji %></td>
+            </tr>
+            
+            <tr>
+              <td class="bg-light">名</td>
+              <td><%= @customer.firstname_kanji %></td>
+            </tr>
 
-                <i class="fas fa-home"></i>商品一覧
+            <tr>
+              <td class="bg-light">セイ</td>
+              <td><%= @customer.lastname_kana %></td>
+            </tr>
+            
+            <tr>
+              <td class="bg-light">メイ</td>
+              <td><%= @customer.firstname_kana %></td>
+            </tr>
 
-              </li>
-              <li>
+            <tr>
+              <td class="bg-light">郵便番号</td>
+              <td><%= @customer.post_code %></td>
+            </tr>
 
-                <i class="fas fa-home"></i>カート
+            <tr>
+              <td class="bg-light">住所</td>
+              <td><%= @customer.address %></td>
+            </tr>
 
-              </li>
-              <li>
-                <%= button_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
-                <i class="fas fa-home"></i>ログアウト
-                <% end %>
-              </li>
+            <tr>
+              <td class="bg-light">電話番号</td>
+              <td><%= @customer.phone_number %></td>
+            </tr>
+
+            <tr>
+              <td class="bg-light">メールアドレス</td>
+              <td><%= @customer.email %></td>
+            </tr>
+          </table>
+            <div class="d-flex align-items-center">
+              <h3>配送先</h3>
+              <%= link_to "一覧を見る", "#", class:"btn btn-primary ml-3" %>
+            </div>
+            <div class="d-flex align-items-center">
+              <h3>注文履歴</h3>
+              <%= link_to "一覧を見る", "#", class:"btn btn-primary ml-3" %>
+           </div>
+           </body>
