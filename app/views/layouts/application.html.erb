@@ -14,7 +14,7 @@
     <header>
       <% if admin_signed_in? %>
         商品一覧
-        会員一覧
+        <%= link_to admin_customers_path do %>会員一覧<% end %>
         注文履歴一覧
         ジャンル一覧
         <%= link_to destroy_admin_session_path, method: :delete do %>ログアウト<% end %>

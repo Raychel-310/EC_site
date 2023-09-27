@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'customers/index'
+    get 'customers/show'
+  end
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers, skip: [:passwords], controllers: {
@@ -17,10 +21,13 @@ Rails.application.routes.draw do
     get "customers/mypage" => "customers#show"
     get "customers/information/edit" => "customers#edit"
     patch "customers/information" => "customers#update"
+    get "customers/check" => "customers#check"
+    patch "customers/leave" => "customers#leave"
   end
 
   namespace :admin do
     root to: 'homes#top'
+    resources :customers
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

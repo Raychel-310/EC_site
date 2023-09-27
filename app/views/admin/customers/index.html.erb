@@ -1,0 +1,26 @@
+<div class="col-md-8 offset-md-1" >
+<h2>会員一覧</h2>
+<table class="table table-hover table-inverse">
+  <tr>
+  <th>会員ID</th>
+  <th>氏名</th>
+  <th>メールアドレス</th>
+  <th>ステータス</th>
+  <th colspan="3"></th>
+  </tr>
+
+  <% @customers.each do |customer| %>
+  <tr>
+    <td><%= customer.id %></td>
+    <td><%= customer.lastname_kanji + customer.firstname_kanji %></td>
+    <td><%= customer.email %></td>
+    <% if customer.is_deleted == false %>
+    <td>有効</td>
+    <% else %>
+    <td>無効</td>
+    <% end %>
+  </tr>
+  <% end %>
+
+</table>
+</div>
