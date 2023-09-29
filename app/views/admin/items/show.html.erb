@@ -1,0 +1,34 @@
+<h2>商品詳細</h2><br>
+  <div>
+    <%= image_tag @item.image, size: "200x200" %><br>
+  </div>
+
+  <h4>商品名</h4>
+    <div>
+      <%= @item.name %>
+    </div>
+  <h4>商品説明</h4>
+    <div>
+      <%= @item.explanation %>
+    </div>
+
+  <h4>ジャンル</h4>
+    <div>
+      <%= @item.genre.name %>
+    </div>
+
+  <h4>税別価格</h4>
+    <div>
+      <%= @item.tax_excluded_price %>円
+    </div>
+
+  <h4>販売ステータス</h4>
+    <div>
+      <% if @item.is_sale == false %>
+      <td>販売停止中</td>
+      <% else %>
+      <td>販売中</td>
+      <% end %>
+    </div>
+
+    <%= button_to '編集する',edit_admin_item_path(@item.id), method: :get ,class: "btn btn-primary ", style: "margin-left:70%;"%>

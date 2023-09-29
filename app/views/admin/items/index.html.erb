@@ -1,0 +1,28 @@
+<h2>商品一覧</h2>
+<%= link_to '商品新規登録', new_admin_item_path %>
+<table class="table table-hover table-inverse">
+  <tr>
+  <th>商品ID</th>
+  <th>商品名</th>
+  <th>税抜価格</th>
+  <th>ジャンル</th>
+  <th>ステータス</th>
+  <th colspan="3"></th>
+  </tr>
+
+  <% @items.each do |item| %>
+  <tr>
+    <td><%= item.id %></td>
+    <td><%= item.name %></td>
+    <td><%= item.tax_excluded_price %></td>
+    <td><%= item.genre.name %></td>
+    <% if item.is_sale == false %>
+    <td>販売停止中</td>
+    <% else %>
+    <td>販売中</td>
+    <% end %>
+  </tr>
+  <% end %>
+
+</table>
+</div>

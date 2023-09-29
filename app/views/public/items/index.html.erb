@@ -1,0 +1,52 @@
+<h2>商品一覧</h2>
+<table class="table table-hover table-inverse">
+  <tr>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th colspan="3"></th>
+  </tr>
+
+  <% @items.each do |item| %>
+  <tr>
+    <td><%= image_tag item.image, size: "200x200" %></td>
+    <td><%= item.name %></td>
+    <td><%= item.tax_excluded_price %></td>
+  </tr>
+  <% end %>
+
+</table>
+</div>
+
+<!--<h2>商品詳細</h2><br>-->
+<!--  <div>-->
+<!--    <%#= image_tag @item.image, size: "200x200" %><br>-->
+<!--  </div>-->
+
+<!--  <h4>商品名</h4>-->
+<!--    <div>-->
+<!--      <%#= @item.name %>-->
+<!--    </div>-->
+<!--  <h4>商品説明</h4>-->
+<!--    <div>-->
+<!--      <%#= @item.explanation %>-->
+<!--    </div>-->
+
+<!--  <h4>ジャンル</h4>-->
+<!--    <div>-->
+<!--      <%#= @item.genre_id %>-->
+<!--    </div>-->
+
+<!--  <h4>税別価格</h4>-->
+<!--    <div>-->
+<!--      <%#= @item.tax_excluded_price %>円-->
+<!--    </div>-->
+
+<!--  <h4>販売ステータス</h4>-->
+<!--    <div>-->
+<!--      <%# if @item.is_sale == false %>-->
+<!--      <td>販売停止中</td>-->
+<!--      <%# else %>-->
+<!--      <td>販売中</td>-->
+<!--      <%# end %>-->
+<!--    </div>-->

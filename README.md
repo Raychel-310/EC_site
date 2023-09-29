@@ -17,4 +17,4 @@
 7. 検索機能 → 7_feature_search
 8. ジャンル検索機能 → 8_genre_search
 
-
+check
