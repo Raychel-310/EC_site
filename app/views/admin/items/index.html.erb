@@ -16,11 +16,12 @@
     <td><%= item.name %></td>
     <td><%= item.tax_excluded_price %></td>
     <td><%= item.genre.name %></td>
-    <% if item.is_sale == false %>
-    <td>販売停止中</td>
-    <% else %>
-    <td>販売中</td>
-    <% end %>
+    <td><%= item.is_sale %></td>
+    <!--<%# if item.is_sale == false %>-->
+    <!--<td>販売停止中</td>-->
+    <!--<%# else %>-->
+    <!--<td>販売中</td>-->
+    <!--<%# end %>-->
   </tr>
   <% end %>
 

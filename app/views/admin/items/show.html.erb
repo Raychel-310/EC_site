@@ -1,6 +1,10 @@
 <h2>商品詳細</h2><br>
   <div>
-    <%= image_tag @item.image, size: "200x200" %><br>
+    <% if @item.image.attached? %>
+    <%= image_tag @item.image, size: "200x200" %>
+    <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+    <% end %>
   </div>
 
   <h4>商品名</h4>
@@ -24,11 +28,12 @@
 
   <h4>販売ステータス</h4>
     <div>
-      <% if @item.is_sale == false %>
-      <td>販売停止中</td>
-      <% else %>
-      <td>販売中</td>
-      <% end %>
+      <%= @item.is_sale %>
+      <!--<%# if @item.is_sale == false %>-->
+      <!--<td>販売停止中</td>-->
+      <!--<%# else %>-->
+      <!--<td>販売中</td>-->
+      <!--<%# end %>-->
     </div>
 
     <%= button_to '編集する',edit_admin_item_path(@item.id), method: :get ,class: "btn btn-primary ", style: "margin-left:70%;"%>
