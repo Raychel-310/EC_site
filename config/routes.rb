@@ -17,15 +17,18 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
+    resources :items
     root to: 'homes#top'
     get "items" => "items#index"
+    get "items/:id" => "items#show"
     get "customers/mypage" => "customers#show"
     get "customers/information/edit" => "customers#edit"
     patch "customers/information" => "customers#update"
     get "customers/check" => "customers#check"
     patch "customers/leave" => "customers#leave"
     get "cart_items" => "cart_items#index"
-    get "items/:id" => "items#show"
+    post "cart_items" => "cart_items#create"
+    
     # resources :cart_items
   end
 

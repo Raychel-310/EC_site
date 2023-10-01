@@ -39,7 +39,7 @@ Item.create!(
       name: "チーズケーキ",
       explanation: "チーズケーキはチーズケーキでも、ニューヨークチーズケーキです。",
       tax_excluded_price: 1000,
-      is_sale: "available", # 販売中の場合
+      is_sale: true, # 販売中の場合
       image: cheesecake_blob
     },
     {
@@ -47,7 +47,7 @@ Item.create!(
       name: "チョコレートケーキ",
       explanation: "ただのチョコレートケーキです。",
       tax_excluded_price: 800,
-      is_sale: "nonavailable", # 販売中の場合
+      is_sale: true, # 販売中の場合
       image: chocolatecake_blob
     }
     # 他の商品のデータも同様に追加できます。
@@ -62,7 +62,7 @@ Item.create!(
 #     explanation: "チーズケーキはチーズケーキでも、ニューヨークチーズケーキです。",
 #     tax_excluded_price: 1000,
 #     is_sale: true,
-#     image: open("./db/images/cheesecake.jpg")
+#     activestage: open("./db/images/cheesecake.jpg")
 #   },
 #   {
 #     genre_id: 1,
@@ -70,17 +70,17 @@ Item.create!(
 #     explanation: "ただのチョコレートケーキです。",
 #     tax_excluded_price: 800,
 #     is_sale: true,
-#     image: open("./db/images/chocolatecake.jpg")
+#     activestorage: open("./db/images/chocolatecake.jpg")
     
 #   }
-#   # {
-#   #   genre_id: 2,
-#   #   name: "クッキー",
-#   #   explanation: "クマにもらったクッキーです。",
-#   # 　tax_excluded_price: 1000,
-#   #   is_sale: true,
-#   #   image: open("./app/assets/images/cookie.png")
-#   # }
+# #   # {
+# #   #   genre_id: 2,
+# #   #   name: "クッキー",
+# #   #   explanation: "クマにもらったクッキーです。",
+# #   # 　tax_excluded_price: 1000,
+# #   #   is_sale: true,
+# #   #   image: open("./app/assets/images/cookie.png")
+# #   # }
 #   ]
 #   )
 
