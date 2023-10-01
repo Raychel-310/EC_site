@@ -6,6 +6,7 @@ class Item < ApplicationRecord
    validates :name, presence: true
    validates :explanation, presence: true
    validates :tax_excluded_price, presence: true
+   
   end
   has_one_attached :image
 end

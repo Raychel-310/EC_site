@@ -1,5 +1,8 @@
 <h1>Public::Items#show</h1>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ad671a928f9fef97d07525689169c991b610a67
 <p>エンドユーザ#商品一覧</p>
 
 <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
@@ -24,4 +27,17 @@
 <h4>税込価格</h4>
 <div>
   <%= ((@item.tax_excluded_price)*1.1).round %>円
+<<<<<<< HEAD
 </div>
+=======
+</div>
+
+
+  <h4><%= f.label :個数選択 %></h4>
+  <%= f.collection_select :amount, 1..10, :to_i, :to_i, prompt: '選択してください' %>
+
+  <%= f.hidden_field :item_id, value: @item.id %>
+
+  <%= f.submit 'カートに入れる', class: "btn btn-primary", style: "margin-left:70%;" %>
+<% end %>
+>>>>>>> 1ad671a928f9fef97d07525689169c991b610a67
