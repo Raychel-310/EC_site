@@ -23,13 +23,13 @@ Genre.create!(
 cheesecake_blob = ActiveStorage::Blob.create_after_upload!(
   io: File.open(Rails.root.join('db', 'images', 'cheesecake.jpg'), 'rb'),
   filename: 'cheesecake.jpg',
-  content_type: 'image/jpeg' # ファイルのMIMEタイプに合わせて変更
+  content_type: 'image/jpeg' 
 )
 
 chocolatecake_blob = ActiveStorage::Blob.create_after_upload!(
   io: File.open(Rails.root.join('db', 'images', 'chocolatecake.jpg'), 'rb'),
   filename: 'chocolatecake.jpg',
-  content_type: 'image/jpeg' # ファイルのMIMEタイプに合わせて変更
+  content_type: 'image/jpeg' 
 )
 
 Item.create!(
@@ -39,7 +39,7 @@ Item.create!(
       name: "チーズケーキ",
       explanation: "チーズケーキはチーズケーキでも、ニューヨークチーズケーキです。",
       tax_excluded_price: 1000,
-      is_sale: "販売中", # 販売中の場合
+      is_sale: "available", # 販売中の場合
       image: cheesecake_blob
     },
     {
@@ -47,7 +47,7 @@ Item.create!(
       name: "チョコレートケーキ",
       explanation: "ただのチョコレートケーキです。",
       tax_excluded_price: 800,
-      is_sale: "販売中", # 販売中の場合
+      is_sale: "nonavailable", # 販売中の場合
       image: chocolatecake_blob
     }
     # 他の商品のデータも同様に追加できます。

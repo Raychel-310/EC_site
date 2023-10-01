@@ -9,10 +9,10 @@
   </tr>
 
   <% @items.each do |item| %>
-  <% if @item.is_sale == true %>
+  <% if item.is_sale == "販売中" %>
   <tr>
     <td>
-    <% if @item.image.attached? %>
+    <% if item.image.attached? %>
     <%= image_tag item.image, size: "200x200" %>
     <% else %>
     <%= image_tag 'no_image', size: "200x200" %>
