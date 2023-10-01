@@ -27,13 +27,8 @@ Rails.application.routes.draw do
     get "customers/check" => "customers#check"
     patch "customers/leave" => "customers#leave"
     get "cart_items" => "cart_items#index"
-<<<<<<< HEAD
-    get "items/:id" => "items#show"
-    post "cart_items" => "cart_items#create"
-=======
     post "cart_items" => "cart_items#create"
     
->>>>>>> 1ad671a928f9fef97d07525689169c991b610a67
     # resources :cart_items
   end
 
