@@ -22,7 +22,7 @@
         <%= link_to root_path do %>LOGO<% end %>
         <%= link_to customers_mypage_path do %>マイページ<% end %>
         <%= link_to items_path do %>商品一覧<% end %>
-        カート
+        <%= link_to 'カート', cart_items_path %>
         <%= button_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>ログアウト<% end %>
       <% else %>
         <%= link_to root_path do %>LOGO<% end %>

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     patch "customers/leave" => "customers#leave"
     get "cart_items" => "cart_items#index"
     get "items/:id" => "items#show"
+    post "cart_items" => "cart_items#create"
     # resources :cart_items
   end
 

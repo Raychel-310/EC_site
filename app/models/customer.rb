@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+  has_many :cart_items
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,7 +11,7 @@ class Customer < ApplicationRecord
   validates :post_code, presence: true
   validates :address, presence: true
   validates :phone_number, presence: true
-  validates :email, presence: true
+  #validates :email, presence: true
   
   # is_deletedがfalseならtrueを返すようにしている
   def active_for_authentication?

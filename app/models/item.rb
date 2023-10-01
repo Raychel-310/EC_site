@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :genre
+  has_many :cart_items
   enum is_sale: {"販売中":true, "販売停止中":false}
   with_options presence: true do
    validates :name, presence: true

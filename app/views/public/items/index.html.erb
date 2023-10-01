@@ -4,11 +4,12 @@
   <tr>
   <th></th>
   <th>商品名</th>
-  <th>税抜価格</th>
+  <th>税込価格</th>
   <th colspan="3"></th>
   </tr>
 
   <% @items.each do |item| %>
+  <%= link_to '商品詳細', cart_items_path %>
   <% if item.is_sale == "販売中" %>
   <tr>
     <td>
@@ -19,7 +20,7 @@
     <% end %>
     </td>
     <td><%= item.name %></td>
-    <td><%= item.tax_excluded_price %></td>
+    <td><%= ((item.tax_excluded_price)*1.1).floor %></td>
     
     <!--<%# if item.is_sale == false %>-->
     <!--<td>販売停止中</td>-->

@@ -39,7 +39,7 @@ Item.create!(
       name: "チーズケーキ",
       explanation: "チーズケーキはチーズケーキでも、ニューヨークチーズケーキです。",
       tax_excluded_price: 1000,
-      is_sale: "available", # 販売中の場合
+      is_sale: true, # 販売中の場合
       image: cheesecake_blob
     },
     {
@@ -47,7 +47,7 @@ Item.create!(
       name: "チョコレートケーキ",
       explanation: "ただのチョコレートケーキです。",
       tax_excluded_price: 800,
-      is_sale: "nonavailable", # 販売中の場合
+      is_sale: true, # 販売中の場合
       image: chocolatecake_blob
     }
     # 他の商品のデータも同様に追加できます。

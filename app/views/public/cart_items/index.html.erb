@@ -1,1 +1,26 @@
-<h1>エンドユーザ#商品一覧</h1>
+<h1>カート内商品一覧</h1>
+
+<h4>ショッピングカート</h4>
+
+<table class="table table-hover table-inverse">
+  <tr>
+  <th>商品名</th>
+  <th>単価(税込)</th>
+  <th>数量</th>
+  <th>小計</th>
+  <th></th>
+  <th colspan="3"></th>
+  </tr>
+
+  <% @cart_items.each do |cart_item| %>
+  <tr>
+    <td><%= cart_item.item.name %></td>
+    <td><%= cart_item.item.((tax_excluded_price)*1.1).floor %></td>
+    <td><%= cart_item.item.amount %></td>
+    <td><%= cart_item.item.(((tax_excluded_price)*1.1).floor)*amount %></td>
+    <td><% link_to '削除する', destroy_cart_items_path %></td>
+  </tr>
+  <% end %>
+
+</table>
+</div>
