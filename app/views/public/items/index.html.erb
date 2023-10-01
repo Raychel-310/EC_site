@@ -9,6 +9,7 @@
   </tr>
 
   <% @items.each do |item| %>
+  <% if @item.is_sale == true %>
   <tr>
     <td>
     <% if @item.image.attached? %>
@@ -19,12 +20,14 @@
     </td>
     <td><%= item.name %></td>
     <td><%= item.tax_excluded_price %></td>
+    
     <!--<%# if item.is_sale == false %>-->
     <!--<td>販売停止中</td>-->
     <!--<%# else %>-->
     <!--<td>販売中</td>-->
     <!--<%# end %>-->
   </tr>
+  <% end %>
   <% end %>
 
 </table>

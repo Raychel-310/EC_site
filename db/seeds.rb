@@ -1,5 +1,5 @@
 Admin.create!(
-  email: "a@gmail.com",
+  email: "b@gmail.com",
   password: "reirei"
 )
 
@@ -20,34 +20,69 @@ Genre.create!(
  ]
 )
 
+cheesecake_blob = ActiveStorage::Blob.create_after_upload!(
+  io: File.open(Rails.root.join('db', 'images', 'cheesecake.jpg'), 'rb'),
+  filename: 'cheesecake.jpg',
+  content_type: 'image/jpeg' # ファイルのMIMEタイプに合わせて変更
+)
+
+chocolatecake_blob = ActiveStorage::Blob.create_after_upload!(
+  io: File.open(Rails.root.join('db', 'images', 'chocolatecake.jpg'), 'rb'),
+  filename: 'chocolatecake.jpg',
+  content_type: 'image/jpeg' # ファイルのMIMEタイプに合わせて変更
+)
+
 Item.create!(
- [
-  {
-    genre_id: 1,
-    item_name: "チーズケーキ",
-    explanation: "チーズケーキはチーズケーキでも、ニューヨークチーズケーキです。。",
-    unit_price_without_tax: 1000,
-    sale_status: 0,
-    image: open("./app/assets/images/cheesecake.jpg")
-  },
-  {
-    genre_id: 1,
-    item_name: "チョコレートケーキ",
-    explanation: "ただのチョコレートケーキです。",
-    unit_price_without_tax: 800,
-    sale_status: 0,
-    image: open("./app/assets/images/chocolatecake.jpg")
-  },
-  {
-    genre_id: 2,
-    item_name: "クッキー",
-    explanation: "クマにもらったクッキーです。",
-    unit_price_without_tax: 1000,
-    sale_status: 0,
-    image: open("./app/assets/images/cookie.jpg")
-  }
+  [
+    {
+      genre_id: 1,
+      name: "チーズケーキ",
+      explanation: "チーズケーキはチーズケーキでも、ニューヨークチーズケーキです。",
+      tax_excluded_price: 1000,
+      is_sale: "販売中", # 販売中の場合
+      image: cheesecake_blob
+    },
+    {
+      genre_id: 1,
+      name: "チョコレートケーキ",
+      explanation: "ただのチョコレートケーキです。",
+      tax_excluded_price: 800,
+      is_sale: "販売中", # 販売中の場合
+      image: chocolatecake_blob
+    }
+    # 他の商品のデータも同様に追加できます。
   ]
-  )
+)
+
+# Item.create!(
+# [
+#   {
+#     genre_id: 1,
+#     name: "チーズケーキ",
+#     explanation: "チーズケーキはチーズケーキでも、ニューヨークチーズケーキです。",
+#     tax_excluded_price: 1000,
+#     is_sale: true,
+#     image: open("./db/images/cheesecake.jpg")
+#   },
+#   {
+#     genre_id: 1,
+#     name: "チョコレートケーキ",
+#     explanation: "ただのチョコレートケーキです。",
+#     tax_excluded_price: 800,
+#     is_sale: true,
+#     image: open("./db/images/chocolatecake.jpg")
+    
+#   }
+#   # {
+#   #   genre_id: 2,
+#   #   name: "クッキー",
+#   #   explanation: "クマにもらったクッキーです。",
+#   # 　tax_excluded_price: 1000,
+#   #   is_sale: true,
+#   #   image: open("./app/assets/images/cookie.png")
+#   # }
+#   ]
+#   )
 
 
 
