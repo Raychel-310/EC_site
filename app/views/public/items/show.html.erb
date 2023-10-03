@@ -1,8 +1,7 @@
-<h1>Public::Items#show</h1>
+<p>エンドユーザ#商品詳細</p>
 
-<p>エンドユーザ#商品一覧</p>
+<%= form_with model: @cart_item, url: cart_items_path do |f| %>
 
-<%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
 <div>
   <% if @item.image.attached? %>
   <%= image_tag @item.image, size: "200x200" %>
@@ -34,3 +33,4 @@
 
   <%= f.submit 'カートに入れる', class: "btn btn-primary", style: "margin-left:70%;" %>
 <% end %>
+

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :items
+    resources :cart_items
     root to: 'homes#top'
     get "items" => "items#index"
     get "items/:id" => "items#show"
@@ -28,8 +29,8 @@ Rails.application.routes.draw do
     patch "customers/leave" => "customers#leave"
     get "cart_items" => "cart_items#index"
     post "cart_items" => "cart_items#create"
+    delete "cart_items" => "cart_items#destroy_all", as: "destroy_all"
     
-    # resources :cart_items
   end
 
   namespace :admin do

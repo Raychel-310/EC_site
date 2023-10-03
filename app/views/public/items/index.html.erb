@@ -9,11 +9,7 @@
   </tr>
 
   <% @items.each do |item| %>
-<<<<<<< HEAD
-  <%= link_to '商品詳細', cart_items_path %>
-=======
-
->>>>>>> 1ad671a928f9fef97d07525689169c991b610a67
+  <%#= link_to '商品詳細', cart_items_path %>
   <% if item.is_sale == "販売中" %>
   <tr>
     <td>
@@ -25,17 +21,13 @@
     </td>
     <td><%= item.name %></td>
     <td><%= ((item.tax_excluded_price)*1.1).floor %></td>
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 1ad671a928f9fef97d07525689169c991b610a67
     <!--<%# if item.is_sale == false %>-->
     <!--<td>販売停止中</td>-->
     <!--<%# else %>-->
     <!--<td>販売中</td>-->
     <!--<%# end %>-->
-    <%= link_to '詳細画面', item_path(item.id) %>
+    <td><%= link_to '詳細画面', item_path(item.id) %></td>
   </tr>
   <% end %>
   <% end %>
