@@ -43,12 +43,10 @@ class Public::CartItemsController < ApplicationController
   
   def increase
     @cart_item.increment!(:amount, 1)
-    redirect_to request.referer
   end
   
   def decrease
     decrease_or_destroy(@cart_item)
-    redirect_to request.referer
   end
   
   def destroy
