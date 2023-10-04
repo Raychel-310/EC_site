@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   namespace :public do
+    get 'address/index'
+    get 'address/edit'
+  end
+  namespace :public do
     get 'items/index'
     get 'items/show'
   end
@@ -19,6 +23,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :items
     resources :cart_items
+    resources :address
     root to: 'homes#top'
     get "items" => "items#index"
     get "items/:id" => "items#show"
@@ -30,7 +35,12 @@ Rails.application.routes.draw do
     get "cart_items" => "cart_items#index"
     post "cart_items" => "cart_items#create"
     delete "cart_items" => "cart_items#destroy_all", as: "destroy_all"
-    
+    # get "address" => "address#index"
+    # post "address" => "address#create"
+    # get "address/:id/edit" => "address#edit"
+    # patch "address/:id" => "address#update"
+    # delete "address/:id" => "address#destroy"
+
   end
 
   namespace :admin do

@@ -10,7 +10,7 @@
               <td class="bg-light">姓</td>
               <td><%= @customer.lastname_kanji %></td>
             </tr>
-            
+
             <tr>
               <td class="bg-light">名</td>
               <td><%= @customer.firstname_kanji %></td>
@@ -20,7 +20,7 @@
               <td class="bg-light">セイ</td>
               <td><%= @customer.lastname_kana %></td>
             </tr>
-            
+
             <tr>
               <td class="bg-light">メイ</td>
               <td><%= @customer.firstname_kana %></td>
@@ -48,7 +48,7 @@
           </table>
             <div class="d-flex align-items-center">
               <h3>配送先</h3>
-              <%= link_to "一覧を見る", "#", class:"btn btn-primary ml-3" %>
+              <%= link_to "一覧を見る", address_index_path, class:"btn btn-primary ml-3" %>
             </div>
             <div class="d-flex align-items-center">
               <h3>注文履歴</h3>

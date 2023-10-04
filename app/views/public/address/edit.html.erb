@@ -1,0 +1,22 @@
+<h1>配送先編集</h1>
+
+<%= form_with model: @address, url: address_path do |f| %>
+<!--updateのpath指定-->
+
+  <div class="field">
+    郵便番号(ハイフンなし)
+    <%= f.text_field :post_code, autofocus: true %>
+  </div>
+  <div class="field">
+    住所
+    <%= f.text_field :address, autofocus: true %>
+  </div>
+  <div class="field">
+    宛名
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "変更を保存" %>
+  </div>
+<% end %>

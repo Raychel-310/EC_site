@@ -16,7 +16,7 @@ class Public::ItemsController < ApplicationController
     #     # byebug
 
     if @cart_item.save
-    　redirect_to cart_items_path, notice: "アイテムがカートに追加されました。"
+    　redirect_to cart_items_path
     else
       # notice: "追加されていません"
     #         #render :show
