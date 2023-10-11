@@ -10,7 +10,7 @@
     </tr>
     <tr>
       <th class= "order-show">支払い方法</th>
-      <td><%= @order.payment_method %></td>
+      <td><%= @order.payment_method_i18n %></td>
     </tr>
     <tr>
         <!-- 注文ステータス変更　プルダウン　更新を押すとアップデート -->
@@ -35,7 +35,7 @@
 
     <%  @order_details.each do |order_detail| %><!--注文した商品の履歴一覧をeach分で表示　-->
       <tr>
-        <td><%= order_detail.item_id %></td>
+        <td><%= order_detail.item.name %></td>
         <td><%= order_detail.purchase_price %></td>
         <td><%= order_detail.quantity %></td>
         <td><%= order_detail.purchase_price*order_detail.quantity %> </td>

@@ -21,7 +21,7 @@ class Public::OrdersController < ApplicationController
       elsif params[:order][:address_option] == "1"
       #@orderは最初に定義済
       #セレクトボックスのid情報をもとにaddress情報を探す
-        @address = Address.find(params[:order][:address_id])
+        @address = Address.find(params[:order][:address])
       #探したaddressの代入
         @order.shipping_postal_code = @address.post_code
         @order.shipping_address = @address.address
@@ -50,17 +50,12 @@ class Public::OrdersController < ApplicationController
     @customer = current_customer
     @cart_items = @customer.cart_items
 
-    if @cart_items.empty?
-      redirect_to cart_items_path
-    else
       @order = Order.new(order_params)
       @order.customer_id = @customer.id
       @order.payment_amount = params[:order][:payment_amount]
       @order.save
 
     # 以下のコードでカートの中身を注文詳細にコピーするなどの処理を追加できます
-
-    redirect_to orders_done_path
     
 
     #@order.payment_amount = @sum + @postage
@@ -76,7 +71,7 @@ class Public::OrdersController < ApplicationController
 
     @cart_items.destroy_all #カートの中身を削除
     redirect_to orders_done_path
-    end
+    
   end
 
   def done
