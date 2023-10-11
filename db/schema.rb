@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_04_112344) do
+ActiveRecord::Schema.define(version: 2023_10_09_075702) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,10 @@ ActiveRecord::Schema.define(version: 2023_10_04_112344) do
   end
 
   create_table "addresses", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "post_code"
+    t.string "address"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -98,6 +102,29 @@ ActiveRecord::Schema.define(version: 2023_10_04_112344) do
     t.text "explanation", null: false
     t.integer "tax_excluded_price", null: false
     t.boolean "is_sale", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "item_id"
+    t.integer "quantity"
+    t.integer "purchase_price"
+    t.integer "production_status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "shipping_postal_code"
+    t.string "shipping_address"
+    t.string "shipping_name"
+    t.integer "payment_method"
+    t.integer "status", default: 0
+    t.integer "payment_amount"
+    t.integer "postage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,63 @@
+<h1>Public::Orders#confirm</h1>
+<p>Find me in app/views/public/orders/confirm.html.erb</p>
+
+    <h3>注文情報確認</h3>
+
+    <table class="table">
+      <tr>
+        <td>商品名</td>
+        <td>単価(税込)</td>
+        <td>数量</td>
+        <td>小計</td>
+      </tr>
+      <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td>
+            <%= image_tag cart_item.item.image, size: "100x80" %>
+            <strong><%= cart_item.item.name %></strong>
+          </td>
+          <td><%= cart_item.item.tax_included_price %></td>
+          <td><%= cart_item.amount %></td>
+          <td><%= cart_item.item.tax_included_price*cart_item.amount %></td>
+        </tr>
+        <% @sum += cart_item.item.tax_included_price*cart_item.amount %>
+      <% end %>
+    </table>
+
+    <table class="table">
+      <tr>
+        <td>送料</td>
+        <td><%= 800 %></td>
+      </tr>
+      <tr>
+        <td>商品合計</td>
+        <td><%= @sum %></td>
+      </tr>
+      <tr>
+        <td>請求額</td>
+        <td><%= @sum + 800 %></td>
+      </tr>
+    </table>
+
+    <h4>支払い方法</h4>
+
+    <%= @order.payment_method_i18n %>
+
+    <h4>お届け先</h4>
+    <%= @order.shipping_postal_code %>
+    <%= @order.shipping_address %>
+    <%= @order.shipping_name %>
+    <%#= @address.address %>
+
+    <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+    <%= f.hidden_field :payment_method , value: @order.payment_method %>
+    <%= f.hidden_field :shipping_address, value: @order.shipping_address %>
+    <%= f.hidden_field :shipping_postal_code, value: @order.shipping_postal_code %>
+    <%= f.hidden_field :shipping_name, value: @order.shipping_name %>
+    <%= f.hidden_field :payment_amount, value: @order.payment_amount %>
+      <%= submit_tag "注文を確定する", class: "btn btn-success" %>
+    <% end %>
+    
+    <%#= form_with model: @order, url: orders_done_path, method: :get do |f| %>
+        
+    <%# end %>

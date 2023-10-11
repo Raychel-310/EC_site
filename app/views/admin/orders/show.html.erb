@@ -1,0 +1,59 @@
+<h2>注文履歴詳細</h2>
+  <table>
+    <tr>
+      <th>購入者</th>
+      <td><%= @order.customer.lastname_kanji %> <%= @order.customer.firstname_kanji %></td>
+    </tr>
+    <tr>
+      <th class= "order-show">配送先</th>
+      <td>〒<%= @order.shipping_postal_code %> <%= @order.shipping_address %><br><%= @order.shipping_name %></td>
+    </tr>
+    <tr>
+      <th class= "order-show">支払い方法</th>
+      <td><%= @order.payment_method %></td>
+    </tr>
+    <tr>
+        <!-- 注文ステータス変更　プルダウン　更新を押すとアップデート -->
+      <th>注文ステータス</th>
+      <td>
+        <%= form_with model: @order, url: admin_order_path(@order) do |f| %><!--oreder controllerのupdateの飛ぶ-->
+          <%= f.select :status, Order.statuses_i18n.invert %><!--ステータス選択 -->
+          <%= f.submit "更新" ,class: "btn btn-primary btn-sm" %></td>
+        <% end %>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>製作ステータス</th>
+      <th></th>
+    </tr>
+
+    <%  @order_details.each do |order_detail| %><!--注文した商品の履歴一覧をeach分で表示　-->
+      <tr>
+        <td><%= order_detail.item_id %></td>
+        <td><%= order_detail.purchase_price %></td>
+        <td><%= order_detail.quantity %></td>
+        <td><%= order_detail.purchase_price*order_detail.quantity %> </td>
+        <!-- 製作ステータス変更　更新を押すと更新-->
+        <td><%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
+            <%= f.select :production_status, OrderDetail.production_statuses_i18n.invert %><!--ステータス選択 -->
+            <%= f.submit "更新" ,class:"btn btn-primary btn-xs" %>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+
+    <div>
+     <h4>商品合計     <%= @payment_amount %>円</h4>
+     <h4>送料　　　    <%= 800 %>円</h4>
+     <h4>請求金額合計　<%= (@payment_amount + 800) %>円</h4>
+    </div>
+
+</div>

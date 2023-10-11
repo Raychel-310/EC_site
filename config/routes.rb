@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'address/index'
-    get 'address/edit'
-  end
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
+  namespace :admin do
+    get 'orders/show'
   end
   # 顧客用
   # URL /customers/sign_in ...
@@ -24,6 +19,9 @@ Rails.application.routes.draw do
     resources :items
     resources :cart_items
     resources :address
+    get 'orders/done', to: 'orders#done', as: 'orders_done'
+    post "orders/confirm" => "orders#show"
+    resources :orders
     root to: 'homes#top'
     get "items" => "items#index"
     get "items/:id" => "items#show"
@@ -48,6 +46,8 @@ Rails.application.routes.draw do
     resources :customers
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items
+    resources :orders
+    resources :order_details
     get "genres" => "genres#index"
     post "genres" => "genres#create"
     get "genres/:id/edit" => "genres#edit"
