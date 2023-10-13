@@ -1,4 +1,7 @@
 class Public::ItemsController < ApplicationController
+  
+  
+  
   def index
     @item = Item.new
     @items = Item.all
@@ -22,4 +25,6 @@ class Public::ItemsController < ApplicationController
     #         #render :show
     end
   end
+  
+  
 end

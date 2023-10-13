@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  
   scope module: :public do
     resources :items
     resources :cart_items
@@ -38,8 +39,9 @@ Rails.application.routes.draw do
     # get "address/:id/edit" => "address#edit"
     # patch "address/:id" => "address#update"
     # delete "address/:id" => "address#destroy"
-
+    
   end
+
 
   namespace :admin do
     root to: 'homes#top'

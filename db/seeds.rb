@@ -1,5 +1,5 @@
 Admin.create!(
-  email: "b@gmail.com",
+  email: "i@gmail.com",
   password: "reirei"
 )
 
@@ -32,6 +32,18 @@ chocolatecake_blob = ActiveStorage::Blob.create_after_upload!(
   content_type: 'image/jpeg' 
 )
 
+madeleine_blob = ActiveStorage::Blob.create_after_upload!(
+  io: File.open(Rails.root.join('db', 'images', 'madeleine.jpg'), 'rb'),
+  filename: 'madeleine.jpg',
+  content_type: 'image/jpeg' 
+)
+
+lollipop_blob = ActiveStorage::Blob.create_after_upload!(
+  io: File.open(Rails.root.join('db', 'images', 'lollipop.jpg'), 'rb'),
+  filename: 'lollipop.jpg',
+  content_type: 'image/jpeg' 
+)
+
 Item.create!(
   [
     {
@@ -49,6 +61,22 @@ Item.create!(
       tax_excluded_price: 800,
       is_sale: true, # 販売中の場合
       image: chocolatecake_blob
+    },
+    {
+      genre_id: 4,
+      name: "マドレーヌ",
+      explanation: "ただのマドレーヌです。",
+      tax_excluded_price: 800,
+      is_sale: true, # 販売中の場合
+      image: madeleine_blob
+    },
+    {
+      genre_id: 3,
+      name: "ペロペロキャンディ",
+      explanation: "LOLLIPOP!",
+      tax_excluded_price: 800,
+      is_sale: true, # 販売中の場合
+      image: lollipop_blob
     }
     # 他の商品のデータも同様に追加できます。
   ]

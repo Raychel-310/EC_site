@@ -18,6 +18,12 @@
         <%= link_to '注文履歴一覧', admin_root_path %>
         <%= link_to 'ジャンル一覧', admin_genres_path %>
         <%= link_to destroy_admin_session_path, method: :delete do %>ログアウト<% end %>
+        <%= search_form_for @q, url: admin_items_path do |f| %>
+        <%= f.label :name_cont, '商品名' %>
+        <%= f.search_field :name_cont %>
+        <br>
+        <%= f.submit '検索' %>
+      <% end %>
       <% elsif customer_signed_in? %>
         <%= link_to root_path do %>LOGO<% end %>
         <%= link_to customers_mypage_path do %>マイページ<% end %>
@@ -30,6 +36,13 @@
         <%= link_to new_customer_registration_path do %>新規登録<% end %>
         <%= link_to new_customer_session_path do %>ログイン<% end %>
       <% end %>
+
+      <%#= form_with model: @search, url: admin_items_path, local: true, method: :get do |f| %>
+  <%#= f.text_field :q, :word %>
+  <%#= f.select :q, :range, options_for_select([['User']['Book']]) %>
+  <%#= f.select :q, :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+  <%#= f.submit "検索", class: "btn btn-primary" %>
+<%# end %>
     </header>
 
     <%= yield %>

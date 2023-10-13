@@ -35,6 +35,16 @@
 </table>
 </div>
 
+
+
+
+<%# if @search_items %>
+  <%# render partial: 'items/item', collection: @search_items %>
+<%# else %>
+  <%# render partial: 'items/item', collection: @items %>
+<%# end %>
+
+
 <!--<h2>商品詳細</h2><br>-->
 <!--  <div>-->
 <!--    <%#= image_tag @item.image, size: "200x200" %><br>-->
