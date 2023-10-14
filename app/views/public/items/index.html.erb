@@ -1,5 +1,35 @@
 <h2>商品一覧</h2>
 
+<%= form_tag(items_path, method: :get) do %>
+  <% genres = Genre.distinct.pluck(:name, :id) %>
+  <%= select_tag(:genre, options_for_select(Genre.distinct.pluck(:name, :id), params[:genre]), include_blank: true) %>
+  <%= submit_tag('ジャンルで検索') %>
+<% end %>
+
+<!--<%# @items.each do |item| %>-->
+<!--商品の表示-->
+<!--    <%# if item.is_sale == "販売中" %>-->
+<!--  <tr>-->
+<!--    <td>-->
+<!--    <%# if item.image.attached? %>-->
+<!--    <%#= image_tag item.image, size: "200x200" %>-->
+<!--    <%# else %>-->
+<!--    <%#= image_tag 'no_image', size: "200x200" %>-->
+<!--    <%# end %>-->
+<!--    </td>-->
+<!--    <td><%#= item.name %></td>-->
+<!--    <td><%#= ((item.tax_excluded_price)*1.1).floor %></td>-->
+
+    <!--<%# if item.is_sale == false %>-->
+    <!--<td>販売停止中</td>-->
+    <!--<%# else %>-->
+    <!--<td>販売中</td>-->
+    <!--<%# end %>-->
+<!--    <td><%#= link_to '詳細画面', item_path(item.id) %></td>-->
+<!--  </tr>-->
+<!--<%# end %>-->
+
+
 <table class="table table-hover table-inverse">
   <tr>
   <th></th>
@@ -33,47 +63,4 @@
   <% end %>
 
 </table>
-</div>
-
-
-
-
-<%# if @search_items %>
-  <%# render partial: 'items/item', collection: @search_items %>
-<%# else %>
-  <%# render partial: 'items/item', collection: @items %>
 <%# end %>
-
-
-<!--<h2>商品詳細</h2><br>-->
-<!--  <div>-->
-<!--    <%#= image_tag @item.image, size: "200x200" %><br>-->
-<!--  </div>-->
-
-<!--  <h4>商品名</h4>-->
-<!--    <div>-->
-<!--      <%#= @item.name %>-->
-<!--    </div>-->
-<!--  <h4>商品説明</h4>-->
-<!--    <div>-->
-<!--      <%#= @item.explanation %>-->
-<!--    </div>-->
-
-<!--  <h4>ジャンル</h4>-->
-<!--    <div>-->
-<!--      <%#= @item.genre_id %>-->
-<!--    </div>-->
-
-<!--  <h4>税別価格</h4>-->
-<!--    <div>-->
-<!--      <%#= @item.tax_excluded_price %>円-->
-<!--    </div>-->
-
-<!--  <h4>販売ステータス</h4>-->
-<!--    <div>-->
-<!--      <%# if @item.is_sale == false %>-->
-<!--      <td>販売停止中</td>-->
-<!--      <%# else %>-->
-<!--      <td>販売中</td>-->
-<!--      <%# end %>-->
-<!--    </div>-->

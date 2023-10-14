@@ -17,7 +17,7 @@ Genre.create!(
   {
     name: "焼き菓子",
   },
- ]
+]
 )
 
 cheesecake_blob = ActiveStorage::Blob.create_after_upload!(
