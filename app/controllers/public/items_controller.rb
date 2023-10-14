@@ -1,9 +1,16 @@
 class Public::ItemsController < ApplicationController
   
-  def index
-    @item = Item.new
-    #@items = Item.all
+  # def index
+  #   @item = Item.new
+  #   #@items = Item.all
     
+  #   if params[:genre].present?
+  #     @items = Item.where(genre_id: params[:genre])
+  #   else
+  #     @items = Item.all
+  #   end
+  # end
+  def index
     if params[:genre].present?
       @items = Item.where(genre_id: params[:genre])
     else

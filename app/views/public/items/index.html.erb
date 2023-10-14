@@ -1,10 +1,21 @@
 <h2>商品一覧</h2>
 
-<%= form_tag(items_path, method: :get) do %>
-  <% genres = Genre.distinct.pluck(:name, :id) %>
-  <%= select_tag(:genre, options_for_select(Genre.distinct.pluck(:name, :id), params[:genre]), include_blank: true) %>
-  <%= submit_tag('ジャンルで検索') %>
-<% end %>
+<div class="col-md-3">
+    <h3>ジャンル</h3>
+    <ul class="list-group">
+      <% Genre.all.each do |genre| %>
+        <li class="list-group-item">
+          <%= link_to genre.name, items_path(genre: genre.id) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+<!--<%#= form_tag(items_path, method: :get) do %>-->
+<!--  <%# genres = Genre.distinct.pluck(:name, :id) %>-->
+<!--  <%#= select_tag(:genre, options_for_select(Genre.distinct.pluck(:name, :id), params[:genre]), include_blank: true) %>-->
+<!--  <%#= submit_tag('ジャンルで検索') %>-->
+<!--<%# end %>-->
 
 <!--<%# @items.each do |item| %>-->
 <!--商品の表示-->
