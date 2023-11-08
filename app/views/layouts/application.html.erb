@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+<link 
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+  rel="stylesheet" 
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+  crossorigin="anonymous"
+>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/62d9c70015.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
     <header>
+      <%= link_to 'NaganoCake', (admin_signed_in? ? admin_top_path : root_path ), class: "logo" %><i class="fa-solid fa-cake-candles"></i>
       <% if admin_signed_in? %>
         <%= link_to '商品一覧', admin_items_path %>
         <%= link_to admin_customers_path do %>会員一覧<% end %>
@@ -25,11 +34,15 @@
         <%= f.submit '検索' %>
       <% end %>
       <% elsif customer_signed_in? %>
-        <%= link_to root_path do %>LOGO<% end %>
+      <body id="wrapper" style="background-color: white; font-family: HiraMinPro-W6; color: #000000;">
+        <%#= link_to root_path do %><%# end %>
         <%= link_to customers_mypage_path do %>マイページ<% end %>
         <%= link_to items_path do %>商品一覧<% end %>
         <%= link_to 'カート', cart_items_path %>
         <%= button_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>ログアウト<% end %>
+        
+        <p>ようこそ、<%= current_customer.lastname_kanji + current_customer.lastname_kana %>さん!</p>
+        
       <% else %>
         <%= link_to root_path do %>LOGO<% end %>
         <%= link_to '商品一覧', items_path %>
@@ -46,6 +59,12 @@
     </header>
 
     <%= yield %>
-
+<script 
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-Qo8tQJwoexv3zYp1Mz3a6K6J6tcQGuK5OgHZ7VZaMsINo5th6oUvm1ciS+HIatnF" 
+  crossorigin="anonymous">
+</script>
   </body>
+  
+  <footer>Copyright © Infratop Inc. All Rights Reserved.</footer>
 </html>

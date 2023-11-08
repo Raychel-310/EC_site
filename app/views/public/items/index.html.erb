@@ -11,35 +11,6 @@
     </ul>
   </div>
 
-<!--<%#= form_tag(items_path, method: :get) do %>-->
-<!--  <%# genres = Genre.distinct.pluck(:name, :id) %>-->
-<!--  <%#= select_tag(:genre, options_for_select(Genre.distinct.pluck(:name, :id), params[:genre]), include_blank: true) %>-->
-<!--  <%#= submit_tag('ジャンルで検索') %>-->
-<!--<%# end %>-->
-
-<!--<%# @items.each do |item| %>-->
-<!--商品の表示-->
-<!--    <%# if item.is_sale == "販売中" %>-->
-<!--  <tr>-->
-<!--    <td>-->
-<!--    <%# if item.image.attached? %>-->
-<!--    <%#= image_tag item.image, size: "200x200" %>-->
-<!--    <%# else %>-->
-<!--    <%#= image_tag 'no_image', size: "200x200" %>-->
-<!--    <%# end %>-->
-<!--    </td>-->
-<!--    <td><%#= item.name %></td>-->
-<!--    <td><%#= ((item.tax_excluded_price)*1.1).floor %></td>-->
-
-    <!--<%# if item.is_sale == false %>-->
-    <!--<td>販売停止中</td>-->
-    <!--<%# else %>-->
-    <!--<td>販売中</td>-->
-    <!--<%# end %>-->
-<!--    <td><%#= link_to '詳細画面', item_path(item.id) %></td>-->
-<!--  </tr>-->
-<!--<%# end %>-->
-
 
 <table class="table table-hover table-inverse">
   <tr>
